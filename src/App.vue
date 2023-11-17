@@ -1,8 +1,12 @@
 <script setup>
 import {ref,onMounted} from 'vue'
 import {gsap} from 'gsap'
+import {Draggable} from 'gsap/Draggable'
 import HelloWorld from './components/HelloWorld.vue'
 import MyLink from './components/MyLink.vue'
+
+
+gsap.registerPlugin(Draggable)
 const de = ref(null)
 console.log(de.value)
 onMounted(()=>{
@@ -11,6 +15,7 @@ onMounted(()=>{
     rotation:27,
     direction:2
   })
+  Draggable.create(de.value)
 })
 </script>
 
